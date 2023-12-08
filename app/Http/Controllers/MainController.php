@@ -36,7 +36,6 @@ class MainController extends Controller
         }
     }
 
-
     public function rekapitulasi()
     {
         $id_user = Auth::id();
@@ -51,7 +50,6 @@ class MainController extends Controller
             return view('rekap', ['smft' => $smft, 'bpmft' => $bpmft,  'mahasiswa' => $mahasiswa]);
         }
     }
-
 
     public function misi(Request $request)
     {
