@@ -1,9 +1,9 @@
-@extends('layouts/master',["title"=>"Musma Teknik 2020"])
+@extends('layouts/master',["title"=>"Musma Teknik 2023"])
 @section('content')
 @php
 $date = date("Y-m-d");
-$regisDate = '2021-01-02';
-$voteDate = '2021-01-08';
+$regisDate = '2024-01-02';
+$voteDate = '2024-01-08';
 @endphp
 <div role="main" class="main" id="home">
 	<section class="slider-container rev_slider_wrapper" style="height: 100vh;">
@@ -38,7 +38,7 @@ $voteDate = '2021-01-08';
 					<div class="tp-caption font-weight-light text-color-light"
 						data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2300,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
 						data-x="center" data-y="center" data-voffset="['85','85','85','140']"
-						data-fontsize="['18','18','18','40']" data-lineheight="['26','26','26','45']">TEKNIK 2020</div>
+						data-fontsize="['18','18','18','40']" data-lineheight="['26','26','26','45']">TEKNIK 2023</div>
 
 				</li>
 			</ul>
@@ -110,7 +110,7 @@ $voteDate = '2021-01-08';
 						Akun Anda Belum Terverifikasi. silahkan tunggu hingga admin memverifikasi
 						@elseif ($date > $voteDate) Masa Vote Telah Berakhir!
 						@else
-						Akun Terverifikasi! @if ($date != $voteDate ) Silahkan Login kembali pada tanggal 08 Januari 2021 untuk
+						Akun Terverifikasi! @if ($date != $voteDate ) Silahkan Login kembali pada tanggal 08 Januari 2024 untuk
 							melakukan pemilihan @else Silahkan Pilih salah satu calon ketua SMFT dan BPMFT dengan cara mengklik
 							foto calon yang ingin dipilih kemudian klik Submit untuk menyimpan pilihan. @endif @endif @endauth
 							</p> </div> </div> </div> <br>
@@ -219,7 +219,7 @@ $voteDate = '2021-01-08';
 
 									<div class="clearfix"></div>
 									@auth
-									@if($date == $voteDate) 
+									@if($date == $voteDate)
 									<div
 										class="result mt-3  d-flex justify-content-center">
 										@if($mahasiswa->status != 'voted' && $mahasiswa->status == 'terverifikasi' )
@@ -228,7 +228,7 @@ $voteDate = '2021-01-08';
 											type="button" id="btn-submit" data-toggle="modal"
 											data-target="#exampleModalalert">Submit</button>
 											@endif
-										@if($mahasiswa->status == 'voted') 
+										@if($mahasiswa->status == 'voted')
 										<button
 											class="btn btn-primary d-block"
 											type="button" id="btn-See">Lihat Hasil Sementara</button>
@@ -270,7 +270,7 @@ $voteDate = '2021-01-08';
 						</div>
 						<div class="feature-box-info pl-1">
 							<h5 class="font-weight-light text-color-light opacity-7 mb-0">Tanggal Pemilihan</h5>
-							<p class="text-color-light font-weight-semibold mb-0">08 / Januari / 2021</p>
+							<p class="text-color-light font-weight-semibold mb-0">08 / Januari / 2024</p>
 						</div>
 					</div>
 				</div>
@@ -356,7 +356,7 @@ $voteDate = '2021-01-08';
 													jika sudah
 													memiliki akun atau sudah
 													melakukan registrasi sebelumnya. Registrasi dapat dilakukan dari
-													tanggal 2 sampai dengan 6 Januari 2021
+													tanggal 2 sampai dengan 6 Januari 2024
 												</p>
 												<span class="vertical-timeline-element-date">
 													<i class="fas fa-arrow-down"></i>
@@ -396,7 +396,7 @@ $voteDate = '2021-01-08';
 												<h4 class="timeline-title">Pemilihan</h4>
 												<p class="text-justify">Ketika akun sudah terverifikasi, maka akun anda
 													siap digunakan untuk
-													memilih secara serempak pada tanggal <b>08 Januari 2021</b>.</p>
+													memilih secara serempak pada tanggal <b>08 Januari 2024</b>.</p>
 												<span class="vertical-timeline-element-date"><i
 														class="fas fa-arrow-down"></i></span>
 											</div>
@@ -512,7 +512,7 @@ $voteDate = '2021-01-08';
 		});
 	}
 
-	$('#btn-submit-modal').on("click", function(event){ 	
+	$('#btn-submit-modal').on("click", function(event){
 		event.preventDefault()
 		var data = $('form').serialize();
 
@@ -632,7 +632,7 @@ $voteDate = '2021-01-08';
 			data: {id: id},
 			success: function(data){
 				$('.modal-body-visimisi').html(data);
-				$('#modalVisiMisi').modal('show'); 
+				$('#modalVisiMisi').modal('show');
 			}
 		});
 	});

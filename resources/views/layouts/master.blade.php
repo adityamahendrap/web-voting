@@ -9,8 +9,8 @@
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>{{$title ?? ''}}</title>
 
-	<meta name="keywords" content="Musma Teknik 2020" />
-	<meta name="description" content="Musma Teknik 2020">
+	<meta name="keywords" content="Musma Teknik 2023" />
+	<meta name="description" content="Musma Teknik 2023">
 	<meta name="SMFT" content="smft.unud.id/musma">
 
 	<!-- Favicon -->
@@ -82,7 +82,7 @@
 					<div class="container py-2">
 						<div class="row py-4">
 							<div class="col d-flex align-items-center justify-content-center">
-								<p><strong>MUSMA TEKNIK 2020</strong> - © Copyright 2020. All Rights Reserved.</p>
+								<p><strong>MUSMA TEKNIK 2023</strong> - © Copyright 2023. All Rights Reserved.</p>
 							</div>
 						</div>
 					</div>

@@ -30,7 +30,7 @@ Route::get("/storage-link", function () {
     symlink($targetFolder, $linkFolder);
 });
 
-if (date("Y-m-d") < '2021-01-08') {
+if (date("Y-m-d") < '2024-01-08') {
     Route::get('register', [RegisterController::class, 'index'])->name('register');
     Route::post('register', [RegisterController::class, 'create'])->name('register.create');
 }
