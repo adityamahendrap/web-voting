@@ -4,6 +4,7 @@
 # install dependencies
 $ composer update
 $ composer install
+$ npm install
 
 # env
 $ cp .env.example .env
