@@ -196,8 +196,8 @@
 
   <script>
     $(document).ready(function(){
-      
-      $('#nim').keyup(function(){ 
+
+      $('#nim').keyup(function(){
         var query = $(this).val();
         if(query != ''){
           var _token = $('input[name="_token"]').val();
@@ -206,18 +206,18 @@
             method:"POST",
             data:{query:query, _token:_token},
             success:function(data){
-              $('#nimList').fadeIn();  
+              $('#nimList').fadeIn();
               $('#nimList').html(data);
             }
           });
         }
       });
 
-      $(document).on('click', 'li', function(){  
-        $('#nim').val($(this).text().replace(/[^0-9\.]/g, ''));  
-        $('#nimList').fadeOut();  
+      $(document).on('click', 'li', function(){
+        $('#nim').val($(this).text().replace(/[^0-9\.]/g, ''));
+        $('#nimList').fadeOut();
       });
-      
+
     });
 
     (function($) {
@@ -236,13 +236,13 @@
         });
       };
     }(jQuery));
-  
+
   // Install input filters.
   $("#nim").inputFilter(function(value) {
-    return /^-?\d*$/.test(value); 
+    return /^-?\d*$/.test(value);
   });
     $("#nim2").inputFilter(function(value) {
-    return /^-?\d*$/.test(value); 
+    return /^-?\d*$/.test(value);
   });
   </script>
 </body>

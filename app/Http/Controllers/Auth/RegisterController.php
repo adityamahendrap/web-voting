@@ -59,9 +59,17 @@ class RegisterController extends Controller
         if ($request->get('query')) {
             $query = $request->get('query');
             $data = User::select("nim", "name")
-                ->where('nim', 'LIKE', "{$query}")
+                ->where('nim', 'LIKE', "{$query}%")
+                ->limit(5)
                 ->get();
+
             $output = '<span>Mahasiswa : </span> <ul class="ids" style="display:block;width:100%;background-color:#f0f0f0;padding:5px;border-radius:5px;margin-bottom:10px;">';
+
+            if ($data->isEmpty()) {
+                $output .= '<li class="p-2"><a href="#" class="text-danger">NIM tidak ditemukan</a></li>';
+                return $output;
+            }
+
             foreach ($data as $row) {
                 $output .= '
                 <li class="p-2"><a href="#" class="text-danger">' . $row->nim . " - " . $row->name . '</a></li>
@@ -85,7 +93,6 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
-
 
     protected function create(Request $request)
     {
@@ -126,6 +133,7 @@ class RegisterController extends Controller
             throw $error;
         }
 
+        // !! prodi id should be not used in here if we seed nama & nim first
         $kode_prodi = substr($request->register_nim, 4, -3);
         $prodi = Prodi::where('kode_prodi', $kode_prodi)->first();
 
