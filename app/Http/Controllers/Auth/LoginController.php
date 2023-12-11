@@ -42,4 +42,9 @@ class LoginController extends Controller
     {
         return 'nim';
     }
+
+    public function index()
+    {
+        return view('auth.login');
+    }
 }

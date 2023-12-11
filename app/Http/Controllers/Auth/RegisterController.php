@@ -51,7 +51,7 @@ class RegisterController extends Controller
 
     function index()
     {
-        return view('register2');
+        return view('auth.register');
     }
 
     function fetch(Request $request)
