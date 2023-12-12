@@ -79,6 +79,16 @@ class RegisterController extends Controller
             echo $output;
         }
     }
+
+    function fetchByNIM(Request $request)
+    {
+        $query = $request->get('query');
+        if ($query) {
+            $user = User::where('nim', $query)->select("nim", "name")->first();
+            echo $user ? $user->name : "Mahasiswa tidak ditemukan";
+        }
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *

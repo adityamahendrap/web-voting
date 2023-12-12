@@ -22,14 +22,14 @@
 </head>
 
 <body>
-    <div id="app" class="position-relative w-100 d-flex align-items-center justify-content-center" style="height: 100vh; overflow:hidden; background: black">
-        <main class="text-white" style="background: #2C0101; padding: 3rem; border: #C90000 3px solid">
+    <div id="app" class="position-relative w-100 d-flex align-items-center justify-content-center" style="min-height: 100vh;overflow-x:hidden; background: black; padding:100px 0 60px 0px;">
+        <main class="text-white glassmorph" style="padding: 3rem 2rem; border: #C90000 2px solid;max-height:max-content;">
             @yield('content')
         </main>
 
-        <div class="fixed-top" style="left: 200px; top: 20px">
-            <img width="150" src="img/logo-musma.png" alt="Ukiran">
-        </div>
+        <a href="/" class="" style="position:fixed;left:50%; transform:translateX(-50%);top: 20px; z-index:9999;">
+            <img width="120" src="img/logo-musma.png" alt="Ukiran">
+        </a>
 
         <div class="position-absolute" style="rotate:45deg; left:-55px; bottom:-18px">
             <img width="200" src="img/ukiran.png" alt="Ukiran">
@@ -56,3 +56,14 @@
 </body>
 
 </html>
+
+
+<style>
+.glassmorph {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 0.5rem;
+}
+
+</style>

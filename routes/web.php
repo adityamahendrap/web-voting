@@ -35,8 +35,8 @@ if (date("Y-m-d") < '2024-01-08') {
     Route::post('register', [RegisterController::class, 'create'])->name('register.create');
 }
 
-Route::post('register/fetch', [RegisterController::class, 'fetch'])->name('autocomplete.fetch');
-Route::get('login', [LoginController::class, 'index']);
+Route::post('register/fetch', [RegisterController::class, 'fetchByNIM'])->name('autocomplete.fetch');
+Route::get('login', [LoginController::class, 'index'])->name('auth');
 Route::post('login', 'Auth\LoginController@login')->name('login');
 
 Route::post('calon/fetch', [CalonController::class, 'fetch'])->name('calon.fetch');
