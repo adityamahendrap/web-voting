@@ -5,7 +5,7 @@ $date = date("Y-m-d");
 $regisDate = '2024-01-02';
 $voteDate = '2024-01-08';
 @endphp
-<div role="main" class="main" id="home">
+<div role="main" class="main bg-dark" id="home">
 	<section class="slider-container rev_slider_wrapper" style="height: 100vh;">
 		<div id="revolutionSlider" class="slider rev_slider" data-version="5.4.8" data-plugin-revolution-slider
 			data-plugin-options="{'sliderLayout': 'fullscreen', 'delay': 9000, 'gridwidth': 1140, 'gridheight': 800, 'responsiveLevels': [4096,1200,992,500]}">
@@ -96,8 +96,8 @@ $voteDate = '2024-01-08';
 		<div class="row justify-content-center pt-5 mt-5">
 			<div class="col-lg-9 text-center">
 				<div class="appear-animation" data-appear-animation="fadeInUpShorter">
-					<h2 class="font-weight-bold mb-2">Polling</h2>
-					<p class="mb-4"> PEMILIHAN KETUA SMFT & BPMFT</p>
+					<h2 class="text-light font-weight-bold mb-2">Polling</h2>
+					<p class="text-light mb-4"> PEMILIHAN KETUA SMFT & BPMFT</p>
 				</div>
 				<div class="warning bg-danger" style="border: 1px solid black; border-radius: 5px;">
 					<p class="warning-start pt-4 text-light appear-animation font-weight-bold pl-2 pr-2"
@@ -142,10 +142,10 @@ $voteDate = '2024-01-08';
 									</div>
 									<div class="smft appear-animation" data-appear-animation="fadeInUpShorter">
 										<div class="judul-pol">
-											<h2>SMFT</h2>
+											<h2 class=" text-light">SMFT</h2>
 										</div>
 										@if (count($smft) == 0)
-										<h4>Belum Ada Calon Terdaftar</h4>
+										<h4 class="text-light">Belum Ada Calon Terdaftar</h4>
 										@endif
 										@foreach ($smft as $item)
 
@@ -180,10 +180,10 @@ $voteDate = '2024-01-08';
 									<hr>
 									<div class="bpmft appear-animation mt-3" data-appear-animation="fadeInUpShorter">
 										<div class="judul-pol">
-											<h2>BPMFT</h2>
+											<h2 class="text-light">BPMFT</h2>
 										</div>
 										@if (count($smft) == 0)
-										<h4>Belum Ada Calon Terdaftar</h4>
+										<h4 class="text-light">Belum Ada Calon Terdaftar</h4>
 										@endif
 										@foreach ($bpmft as $item)
 
