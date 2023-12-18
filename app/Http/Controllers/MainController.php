@@ -85,41 +85,51 @@ class MainController extends Controller
 
     public function vote(Request $request)
     {
-        if (!Auth::user()) {
+        $data = json_decode(file_get_contents(public_path('data/info.json')), true);
+        $voteDate = app()->environment('local') ? date('Y-m-d') : $data['masa_pemilihan']['date'];
+
+        if (!Auth::check()) {
             return "Vote gagal, Silahkan Login Dengan Akun Terverifikasi";
-        } else {
-            if (date('d-m-Y') != '08-01-2024') {
-                return "Vote Hanya dapat dilakukan pada 8 Januari 2024";
-            } else {
-                if (isset($request->smft) && isset($request->bpmft)) {
-                    $id_user = Auth::id();
-                    $mahasiswa = Mahasiswa::where('user_id', $id_user)->get()->first();
-                    if ($mahasiswa->status == 'terverifikasi') {
-                        $mahasiswa->id = $mahasiswa->id;
-                        $mahasiswa->status = 'voted';
-                        $mahasiswa->update();
-
-                        $suara_smft = new Suara();
-                        $suara_smft->mahasiswa_id = $mahasiswa->id;
-                        $suara_smft->calon_id = $request->smft;
-                        $suara_smft->save();
-
-                        $suara_bpmft = new Suara();
-                        $suara_bpmft->mahasiswa_id = $mahasiswa->id;;
-                        $suara_bpmft->calon_id = $request->bpmft;
-                        $suara_bpmft->save();
-
-                        return "Vote Disimpan, Terima kasih telah memilih";
-                    } else if ($mahasiswa->status == 'voted') {
-                        return "Vote Gagal, Anda Sudah Melakukan Vote";
-                    } else {
-                        return "Vote Gagal, Maaf Anda Belum Terverifikasi";
-                    }
-                } else {
-                    return "Silahkan pilih salah satu calon ketua SMFT dan BPMFT ";
-                }
-            }
         }
+
+        if (date('Y-m-d') !== $voteDate) {
+            return "Vote Hanya dapat dilakukan pada tanggal " . $data['masa_pemilihan']['description'];
+        }
+
+        $id_user = Auth::id();
+        $mahasiswa = Mahasiswa::where('user_id', $id_user)->first();
+
+        if (!$mahasiswa) {
+            return "Vote Gagal, Maaf Anda Belum Terverifikasi";
+        }
+
+        if ($mahasiswa->status === 'voted') {
+            return "Vote Gagal, Anda Sudah Melakukan Vote";
+        }
+
+        if ($mahasiswa->status !== 'terverifikasi') {
+            return "Vote Gagal, Maaf Anda Belum Terverifikasi";
+        }
+
+        if (!isset($request->smft) || !isset($request->bpmft)) {
+            return "Silahkan pilih salah satu calon ketua SMFT dan BPMFT ";
+        }
+
+        $mahasiswa->status = 'voted';
+        $mahasiswa->update();
+
+        $this->saveVote($mahasiswa->id, $request->smft);
+        $this->saveVote($mahasiswa->id, $request->bpmft);
+
+        return "Vote Disimpan, Terima kasih telah memilih";
+    }
+
+    private function saveVote($mahasiswaId, $calonId)
+    {
+        $suara = new Suara();
+        $suara->mahasiswa_id = $mahasiswaId;
+        $suara->calon_id = $calonId;
+        $suara->save();
     }
 
     public function chart()

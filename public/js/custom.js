@@ -10,7 +10,7 @@ $(document).ready(function () {
             name = $(this).attr('name');
             if (flag && !$(':radio[name="' + name + '"]:checked').length) {
                 $('#alert-vote').modal().show();
-                $('#text-modal').append('<strong>Harap Lengkapi Pilihan Vote!</strong>');
+                $('#text-modal').html('<strong>Harap Lengkapi Pilihan Vote!</strong>');
 
                 flag = false;
             } else {

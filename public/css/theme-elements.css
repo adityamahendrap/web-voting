@@ -7671,7 +7671,7 @@ ul.sitemap.list ul {
 	right: 0;
 	top: 0;
 	visibility: hidden;
-	background: #FFF;
+	background: #212529;
 }
 
 body > .loading-overlay {
@@ -7697,7 +7697,7 @@ body > .loading-overlay {
 .bounce-loader .bounce3 {
 	-webkit-animation: 1.4s ease-in-out 0s normal both infinite bouncedelay;
 	animation: 1.4s ease-in-out 0s normal both infinite bouncedelay;
-	background-color: #CCC;
+	background-color: #dd0000;
 	border-radius: 100%;
 	-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
@@ -8992,7 +8992,7 @@ body.page-transition-active {
 	opacity: 0 !important;
 }
 
-/* 
+/*
 Image 360┬║ Viewer
 Credits: Codyhouse (https://codyhouse.co/gem/360-degrees-product-viewer)
 */
