@@ -8,27 +8,51 @@
                 @csrf
                 <div class="form-group-custom-inline">
                     <div class="form-group-custom">
-                        <input type="text" name="register_nim" id="nim" placeholder="Masukkan NIM" maxlength="10">
+                        <input type="text" name="register_nim" id="nim" placeholder="Masukkan NIM" maxlength="10"
+                            class="@error('register_nim') error @enderror" value="{{ old('register_nim') }}">
+                        @error('register_nim')
+                            <p class="message-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="form-group-custom">
-                        <input type="text" name="nama" id="nama" placeholder="Masukkan Nama" disabled>
+                        <input type="text" name="nama" id="nama" placeholder="Nama Mahasiswa" disabled
+                            value="{{ old('nama_hidden') }}">
+                        <input type="hidden" name="nama_hidden" id="nama_hidden" value="{{ old('nama_hidden') }}">
                     </div>
                 </div>
                 <div class="form-group-custom-inline">
                     <div class="form-group-custom">
                         <input type="password" name="register_password" id="pwdId" placeholder="Masukkan Password"
-                            pattern="^[0-9a-zA-Z]{2,30}$" required>
+                            class="@error('register_password') error @enderror" pattern="^[0-9a-zA-Z]{2,30}$" required>
+                        @error('register_password')
+                            <p class="message-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                     <div class="form-group-custom">
-                        <input type="password" name="password_confirmation" id="cPwdId" class="myCpwdClass"
+                        <input type="password" name="password_confirmation" id="cPwdId"
+                            class="myCpwdClass @error('password_confirmation') error @enderror"
                             placeholder="Konfirmasi Password" pattern="^[0-9a-zA-Z]{2,30}$" required>
+                        @error('password_confirmation')
+                            <p class="message-error">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group-custom">
                     <label>Scan KTM/KRM/UKT Ku</label>
-                    <input placeholder="Masukan Foto" class=" @error('file_url') is-invalid @enderror input-file-custom" name="file_url"
-                        type="file" id="customFile" required>
-                    <small class="maks-size-file ">*maks file 2Mb</small>
+                    <input placeholder="Masukan Foto" class=" @error('file_url') is-invalid @enderror input-file-custom"
+                        name="file_url" type="file" id="customFile" required value="{{ old('file_url') }}" <small
+                        class="maks-size-file ">*maks file 2Mb</small>
+                    @error('file_url')
+                        <p class="message-error">
+                            {{ $message }}
+                        </p>
+                    @enderror
                 </div>
                 <button class="btn-custom">Daftar</button>
             </form>
@@ -46,7 +70,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#nim').keyup(function() {
+            $('#nim').on('input', function() {
                 var query = $(this).val();
                 if (query != '') {
                     var _token = $('input[name="_token"]').val();
@@ -59,6 +83,7 @@
                         },
                         success: function(data) {
                             $('#nama').val(data);
+                            $('#nama_hidden').val(data);
                         }
                     });
                 }
@@ -155,25 +180,28 @@
         background-color: #C90000;
         cursor: pointer;
     }
+
     .input-file-custom::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.input-file-custom::before {
-  content: 'Upload Dokumen';
-  display: inline-block;
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 10pt;
-}
-.input-file-custom:hover::before {
-  border-color: black;
-}
+        visibility: hidden;
+    }
+
+    .input-file-custom::before {
+        content: 'Upload Dokumen';
+        display: inline-block;
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 10pt;
+    }
+
+    .input-file-custom:hover::before {
+        border-color: black;
+    }
 
     @media screen and (max-width: 516px) {
         .form-custom-layout {

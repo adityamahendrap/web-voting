@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Login Admin</title>
+    <title>Musma 2023</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -90,8 +90,8 @@
     <script src="/vendor/jquery.cookie/jquery.cookie.min.js"></script>
     <script>
         $(document).ready(function(){
-    
-     $('#nim').keyup(function(){ 
+
+     $('#nim').keyup(function(){
             var query = $(this).val();
             if(query != '')
             {
@@ -101,18 +101,18 @@
               method:"POST",
               data:{query:query, _token:_token},
               success:function(data){
-               $('#nimList').fadeIn();  
+               $('#nimList').fadeIn();
                         $('#nimList').html(data);
               }
              });
             }
         });
-    
-        $(document).on('click', 'li', function(){  
-            $('#nim').val($(this).text().replace(/[^0-9\.]/g, ''));  
-            $('#nimList').fadeOut();  
-        });  
-    
+
+        $(document).on('click', 'li', function(){
+            $('#nim').val($(this).text().replace(/[^0-9\.]/g, ''));
+            $('#nimList').fadeOut();
+        });
+
     });
     </script>
 </body>

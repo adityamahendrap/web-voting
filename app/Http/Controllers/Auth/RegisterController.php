@@ -112,12 +112,22 @@ class RegisterController extends Controller
             $request,
             [
                 'register_nim' => 'required|min:10|max:10',
-                'register_password' => 'required|min:2|max:30',
+                'register_password' => 'required|min:4|max:30',
+                'password_confirmation' => 'required|min:4|max:30|same:register_password',
                 'file_url' => 'mimes:jpeg,jpg,png,gif|required|max:2000'
             ],
             [
-                'file_url.mimes' => 'format file tidak didukung, silahkan masukan format gambar : jpeg,jpg atau png',
-                'file_url.max' => 'Ukuran file tidak boleh lebih dari 2Mb'
+                'file_url.mimes' => 'Format file tidak didukung, silahkan masukan format gambar: jpeg, jpg, atau png',
+                'file_url.max' => 'Ukuran file tidak boleh lebih dari 2Mb',
+                'file_url.required' => 'Foto tidak boleh kosong',
+                'register_nim.required' => 'NIM tidak boleh kosong',
+                'register_nim.min' => 'NIM harus 10 karakter',
+                'register_nim.max' => 'NIM harus 10 karakter',
+                'register_password.required' => 'Password tidak boleh kosong',
+                'register_password.min' => 'Password minimal 4 karakter',
+                'register_password.max' => 'Password maksimal 30 karakter',
+                'password_confirmation.required' => 'Konfirmasi password tidak boleh kosong',
+                'password_confirmation.same' => 'Konfirmasi password tidak cocok',
             ]
         );
 
