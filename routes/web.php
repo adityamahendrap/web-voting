@@ -1,6 +1,7 @@
 <?php
 define('TIMEZONE', 'Asia/Makassar');
 date_default_timezone_set(TIMEZONE);
+
 use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -30,10 +31,13 @@ Route::get("/storage-link", function () {
     symlink($targetFolder, $linkFolder);
 });
 
-if (date("Y-m-d") < '2024-01-08') {
-    Route::get('register', [RegisterController::class, 'index'])->name('register');
-    Route::post('register', [RegisterController::class, 'create'])->name('register.create');
-}
+// if (date("Y-m-d") < '2024-01-08') {
+//     Route::get('register', [RegisterController::class, 'index'])->name('register');
+//     Route::post('register', [RegisterController::class, 'create'])->name('register.create');
+// }
+
+Route::get('register', [RegisterController::class, 'index'])->name('register');
+Route::post('register', [RegisterController::class, 'create'])->name('register.create');
 
 Route::post('register/fetch', [RegisterController::class, 'fetchByNIM'])->name('autocomplete.fetch');
 Route::get('login', [LoginController::class, 'index'])->name('auth');
