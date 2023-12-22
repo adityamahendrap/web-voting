@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        <h1 style="text-align:center;font-weight:700;">Register</h1>
+        <h1 style="text-align:center;font-weight:700;">REGISTER</h1>
         <div class="form-custom-layout">
             <form action="/register" method="POST" enctype="multipart/form-data" class="form-custom">
                 @csrf
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group-custom">
                     <label>Scan KTM/KRM/UKT Ku</label>
-                    <input placeholder="Masukan Foto" class=" @error('file_url') is-invalid @enderror" name="file_url"
+                    <input placeholder="Masukan Foto" class=" @error('file_url') is-invalid @enderror input-file-custom" name="file_url"
                         type="file" id="customFile" required>
                     <small class="maks-size-file ">*maks file 2Mb</small>
                 </div>
@@ -155,7 +155,25 @@
         background-color: #C90000;
         cursor: pointer;
     }
-
+    .input-file-custom::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.input-file-custom::before {
+  content: 'Upload Dokumen';
+  display: inline-block;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.input-file-custom:hover::before {
+  border-color: black;
+}
 
     @media screen and (max-width: 516px) {
         .form-custom-layout {

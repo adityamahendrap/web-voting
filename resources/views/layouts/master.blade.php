@@ -48,7 +48,7 @@
 	<link rel="stylesheet" href="/vendor/rs-plugin/css/navigation.css">
 
 	<!-- Demo CSS -->
-
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 	<!-- Skin CSS -->
 	<link rel="stylesheet" href="/css/skins/default.css">
@@ -127,6 +127,11 @@
 
 		<!-- Examples -->
 		<script src="/js/examples/examples.portfolio.js"></script>
+
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 
 		<script>

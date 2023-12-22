@@ -23,7 +23,7 @@
 
 <body>
     <div id="app" class="position-relative w-100 d-flex align-items-center justify-content-center" style="min-height: 100vh;overflow-x:hidden; background: black; padding:100px 0 60px 0px;">
-        <main class="text-white glassmorph" style="padding: 3rem 2rem; border: #C90000 2px solid;max-height:max-content;">
+        <main class="text-white glassmorph main-container">
             @yield('content')
         </main>
 
@@ -66,4 +66,13 @@
     border-radius: 0.5rem;
 }
 
+.main-container {
+    padding: 3rem 2rem; border: #C90000 2px solid;max-height:max-content;position:relative;z-index:6;
+}
+
+@media screen and (max-width: 516px) {
+    .main-container {
+        border:none;
+    }
+}
 </style>

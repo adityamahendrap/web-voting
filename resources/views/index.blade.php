@@ -47,10 +47,12 @@
 
         <section id="tentang" class="section section-height-3 bg-dark border-0 m-0 appear-animation"
             data-appear-animation="fadeIn">
-            <div class="container my-3">
+            <div class="container my-1" 
+			>
                 <div class="row mb-5">
-                    <div class="col text-center appear-animation" data-appear-animation="fadeInUpShorter"
-                        data-appear-animation-delay="200">
+                    <div class="col text-center appear-animation" 
+						data-aos="fade-up" data-aos-delay="200"
+					>
                         <h2 class="font-weight-bold text-color-light mb-2">Apa Itu Musma?</h2>
                         <p class="text-color-light opacity-7">MUSMA merupakan kegiatan Musyawarah Mahasiswa yang
                             dilaksanakan rutin setiap tahun (1 periode) masa kepemimpinan Senat Mahasiswa (SMFT) dan Badan
@@ -61,7 +63,9 @@
                     </div>
                 </div>
                 <div class="row mb-lg-4 ">
-                    <div class="col-lg-6 appear-animation" data-appear-animation="fadeInLeftShorter">
+                    <div class="col-lg-6 appear-animation"
+						data-aos="fade-right" data-aos-delay="400"
+					>
                         <div class="feature-box feature-box-style-2">
                             <div class="feature-box-icon">
                                 <i class="icons icon-layers text-color-light"></i>
@@ -74,8 +78,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 appear-animation" data-appear-animation="fadeInRightShorter"
-                        data-appear-animation-delay="300">
+                    <div class="col-lg-6 appear-animation" 
+						data-aos="fade-left" data-aos-delay="600"
+						>
                         <div class="feature-box feature-box-style-2">
                             <div class="feature-box-icon">
                                 <i class="icons icon-menu text-color-light"></i>
@@ -95,13 +100,16 @@
         <section id="Polling" class="container" style="border-top:2px solid #dd0000;">
             <div class="row justify-content-center pt-5 mt-5">
                 <div class="col-lg-9 text-center">
-                    <div class="appear-animation" data-appear-animation="fadeInUpShorter">
+                    <div class="appear-animation" 
+						data-aos="fade-up" data-aos-delay="200"
+					>
                         <h2 class="text-light font-weight-bold mb-2">Polling</h2>
                         <p class="text-light mb-4"> PEMILIHAN KETUA SMFT & BPMFT</p>
                     </div>
                     <div class="warning bg-danger" style="border: 1px solid black; border-radius: 5px;">
                         <p class="warning-start pt-4 text-light appear-animation font-weight-bold pl-2 pr-2"
-                            data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200"> @guest Silahkan
+							data-aos="zoom-in" data-aos-delay="400"
+						> @guest Silahkan
                                 login
                             terlebih dahulu untuk melihat status akun @endguest
                             @auth
@@ -149,7 +157,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="smft appear-animation" data-appear-animation="fadeInUpShorter">
+                        <div class="smft appear-animation" 
+							data-aos="fade-up" data-aos-delay="200"
+						>
                             <div class="judul-pol">
                                 <h2 class=" text-light">SMFT</h2>
                             </div>
@@ -157,7 +167,11 @@
                                 <h4 class="text-light">Belum Ada Calon Terdaftar</h4>
                             @endif
                             @foreach ($smft as $item)
-                                <label class="custom-radio">
+								<div
+									data-aos="fade-up" data-aos-delay="400"
+									class="mt-6"
+								>
+								<label class="custom-radio">
                                     <input type="radio" @guest disabled @endguest
                                         @auth @if ($date != $voteDate || $mahasiswa->status == 'terdaftar' || $mahasiswa->status == 'voted') disabled
 											@endif @foreach ($suara as $item2){{ $item->id == $item2->calon_id ? 'checked' : '' }}@endforeach @endauth
@@ -179,10 +193,13 @@
                                         </div>
                                     </span>
                                 </label>
+								</div>
                             @endforeach
                         </div>
                         <hr>
-                        <div class="bpmft appear-animation mt-3" data-appear-animation="fadeInUpShorter">
+                        <div class="bpmft appear-animation mt-3" 
+							data-aos="fade-up" data-aos-delay="400"
+						>
                             <div class="judul-pol">
                                 <h2 class="text-light">BPMFT</h2>
                             </div>
@@ -190,7 +207,11 @@
                                 <h4 class="text-light">Belum Ada Calon Terdaftar</h4>
                             @endif
                             @foreach ($bpmft as $item)
-                                <label class="custom-radio">
+								<div 
+									data-aos="fade-up" data-aos-delay="400"
+									class="mt-6"
+								>
+								<label class="custom-radio">
                                     <input type="radio" @guest disabled @endguest
                                         @auth @if ($date != $voteDate || $mahasiswa->status == 'terdaftar' || $mahasiswa->status == 'voted') disabled
                                         @endif @foreach ($suara as $item2){{ $item->id == $item2->calon_id ? 'checked' : '' }}@endforeach @endauth
@@ -212,6 +233,7 @@
                                         </div>
                                     </span>
                                 </label>
+								</div>
                             @endforeach
 
                         </div>
@@ -236,7 +258,8 @@
             </section>
 
             <section id="contact" class="section bg-color-grey-scale-5 border-0 m-0 p-0"
-                data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="200">
+				data-aos="fade-up" data-aos-delay="200"
+			>
                 <div class="container-fluid">
                     <div class="row p-0">
                         <div class="col-md-12 p-0">
@@ -258,7 +281,7 @@
             <section class="section bg-primary border-0 m-0">
                 <div class="container">
                     <div class="row justify-content-center text-center text-lg-left py-4">
-                        <div class="col-lg-auto appear-animation" data-appear-animation="fadeInRightShorter">
+                        <div class="col-lg-auto appear-animation" data-aos="zoom-in" data-aos-delay="100">
                             <div class="feature-box feature-box-style-2 d-block d-lg-flex mb-4 mb-lg-0">
                                 <div class="feature-box-icon">
                                     <i class="icon-clock icons text-color-light"></i>
@@ -269,8 +292,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-auto appear-animation" data-appear-animation="fadeInRightShorter"
-                            data-appear-animation-delay="200">
+                        <div class="col-lg-auto appear-animation"
+							data-aos="zoom-in" data-aos-delay="300"
+						>
                             <div class="feature-box feature-box-style-2 d-block d-lg-flex mb-4 mb-lg-0 px-xl-4 mx-lg-5">
                                 <div class="feature-box-icon">
                                     <i class="icon-call-out icons text-color-light"></i>
@@ -290,8 +314,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-auto appear-animation" data-appear-animation="fadeInRightShorter"
-                            data-appear-animation-delay="400">
+                        <div class="col-lg-auto appear-animation" 
+							data-aos="zoom-in" data-aos-delay="500"
+						>
                             <div class="feature-box feature-box-style-2 d-block d-lg-flex">
                                 <div class="feature-box-icon">
                                     <i class="icon-share icons text-color-light"></i>

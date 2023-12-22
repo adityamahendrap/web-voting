@@ -58,7 +58,7 @@ $user_role = $user->getRoleNames()[0];
                                         @endauth
 
                                         @guest
-                                        <li class="d-block d-lg-none">
+                                        <li class="d-block d-lg-none py-2">
                                             <a href="@if (Route::has('register')) {{route('register')}} @else
                                                 # @endif" class="text-light"> Daftar</a> <span
                                                 class="text-light"> / </span> <a href="@if (Route::has('auth'))
@@ -110,7 +110,7 @@ $user_role = $user->getRoleNames()[0];
                                         @endauth
 
                                         @guest
-                                        <li class="d-block d-lg-none">
+                                        <li class="d-block d-lg-none py-3">
                                             <a href="@if (Route::has('register')) {{route('register')}} @else
                                                 # @endif" class="text-light"> Daftar</a> <span
                                                 class="text-light"> / </span> <a href="@if (Route::has('auth'))
@@ -119,27 +119,27 @@ $user_role = $user->getRoleNames()[0];
                                         </li>
                                         @endguest
                                         <li>
-                                            <a data-hash class="dropdown-item active" href="#home">
+                                            <a data-hash class="dropdown-item py-3 active" href="#home">
                                                 Home
                                             </a>
                                         </li>
                                         @if (Route::has('rekap'))
                                         <li>
-                                            <a class="dropdown-item active" href="{{ route('rekap') }}">
+                                            <a class="dropdown-item py-3 active" href="{{ route('rekap') }}">
                                                 Rekapitulasi
                                             </a>
                                         </li>
                                         @endif
                                         <li>
-                                            <a class="dropdown-item" data-hash data-hash-offset="68"
+                                            <a class="dropdown-item py-3" data-hash data-hash-offset="68"
                                                 href="#tentang">tentang</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" data-hash data-hash-offset="68"
+                                            <a class="dropdown-item py-3" data-hash data-hash-offset="68"
                                                 href="#Polling">Polling</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" data-hash data-hash-offset="68"
+                                            <a class="dropdown-item py-3" data-hash data-hash-offset="68"
                                                 href="#contact">Contact Us</a>
                                         </li>
                                     </ul>
