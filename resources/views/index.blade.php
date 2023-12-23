@@ -509,6 +509,7 @@
             var cSmft = document.getElementById('smft');
             var cBpmft = document.getElementById('bpmft');
 
+
             function loadDataChart() {
                 $.ajax({
                     url: '{{ Route('chart') }}',
@@ -554,57 +555,57 @@
 
             });
 
+            const colors = [{
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)'
+                },
+                {
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)'
+                },
+                {
+                    backgroundColor: 'rgba(14, 255, 108, 0.2)',
+                    borderColor: 'rgba(54, 235, 65)'
+                }
+            ]
 
             function updateChart(data) {
-
                 var smft_calons = [];
                 for (var k in data.SMFT) smft_calons.push(k);
-
                 var prodis = data.SMFT[smft_calons[0]]?.prodis;
+
+                var smftDatasets = [];
+                for (let i = 0; i < smft_calons.length; i++) {
+                    smftDatasets.push({
+                        label: smft_calons[i],
+                        backgroundColor: colors[i].backgroundColor,
+                        borderColor: colors[i].borderColor,
+                        borderWidth: 1,
+                        data: data.SMFT[smft_calons[i]]?.prodi_value
+                    });
+                }
                 var datasmft = {
                     labels: prodis,
-                    datasets: [{
-                        label: smft_calons[0],
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1,
-                        data: data.SMFT[smft_calons[0]]?.prodi_value
-                    }, {
-                        label: smft_calons[1],
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1,
-                        data: data.SMFT[smft_calons[1]]?.prodi_value
-                    }]
+                    datasets: smftDatasets
                 };
+
 
                 var bpmft_calons = [];
                 for (var k in data.BPMFT) bpmft_calons.push(k);
 
+                const datesetsBpmft = [];
+                for (let i = 0; i < bpmft_calons.length; i++) {
+                    datesetsBpmft.push({
+                        label: bpmft_calons[i],
+                        backgroundColor: colors[i].backgroundColor,
+                        borderColor: colors[i].borderColor,
+                        borderWidth: 1,
+                        data: data.BPMFT[bpmft_calons[i]]?.prodi_value
+                    });
+                }
                 var databpmft = {
                     labels: prodis,
-                    datasets: [
-                        {
-                            label: bpmft_calons[0],
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1,
-                            data: data.BPMFT[bpmft_calons[0]].prodi_value
-                        },
-                        {
-                            label: bpmft_calons[1],
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1,
-                            data: data.BPMFT[bpmft_calons[1]]?.prodi_value
-                        }, {
-                            label: bpmft_calons[2],
-                            backgroundColor: 'rgba(14, 255, 108, 0.2)',
-                            borderColor: 'rgba(54, 235, 65)',
-                            borderWidth: 1,
-                            data: data.BPMFT[bpmft_calons[2]]?.prodi_value
-                        }
-                    ]
+                    datasets: datesetsBpmft
                 };
 
                 var chartSMFT = new Chart(cSmft, {

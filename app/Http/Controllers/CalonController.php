@@ -53,7 +53,7 @@ class CalonController extends Controller
         return redirect('admin/calon');
     }
 
-    function fetch(Request $request)
+    public function fetch(Request $request)
     {
         if ($request->get('query')) {
             $query = $request->get('query');
@@ -67,6 +67,16 @@ class CalonController extends Controller
             $output .= '</ul>';
             echo $output;
         }
+    }
+
+    public function count()
+    {
+        $bpmft = Calon::where('jenis_calon', 'BPMFT')->count();
+        $smft = Calon::where('jenis_calon', 'SMFT')->count();
+        return json_encode([
+            'bpmft' => $bpmft,
+            'smft' => $smft
+        ]);
     }
 
     public function show(Calon $calon)
