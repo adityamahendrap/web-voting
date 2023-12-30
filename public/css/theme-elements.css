@@ -10365,9 +10365,9 @@ html.boxed .nav-secondary.sticky-active {
 html .scroll-to-top {
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
-	background: #404040;
-	border-radius: 4px 4px 0 0;
-	bottom: 0;
+	background: #BF1212;
+    border-radius: 4px 4px 0 0;
+	bottom: 10px;
 	color: #FFF!important;
 	display: block;
 	height: 9px;
