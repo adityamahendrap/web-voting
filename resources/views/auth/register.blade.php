@@ -70,7 +70,7 @@
       </div>
     @else
       <h5>Masa pendaftaran telah berakhir. Silahkan <a href="/login"
-          style="color:#E54C4C;text-decoration:underline;">login</a> untuk melakukan voting.</h5>
+          style="color:#E54C4C;text-decoration:underline;">login</a> untuk melakukan polling.</h5>
     @endif
 
 
