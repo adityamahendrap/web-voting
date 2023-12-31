@@ -29,7 +29,7 @@
       <img src="/img/logo-red.png" alt="Logo Teknik">
     </div>
 
-    <main class="text-white glassmorph main-container">
+    <main class="text-white glassmorph main-container" style="margin: 20px">
       @yield('content')
     </main>
 

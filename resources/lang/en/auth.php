@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'NIM atau password salah.',
+    'failed' => 'NIM atau password salah',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

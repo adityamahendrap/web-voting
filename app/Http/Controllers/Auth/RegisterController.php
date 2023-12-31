@@ -137,6 +137,7 @@ class RegisterController extends Controller
         if (!$user) {
             $error = ValidationException::withMessages([
                 'register_nim' => ['NIM tidak di temukan'],
+                'nama_hidden' => ['Mahasiswa tidak di temukan']
             ]);
 
             throw $error;
@@ -147,7 +148,7 @@ class RegisterController extends Controller
 
         if ($mahasiswa) {
             $error = ValidationException::withMessages([
-                'register_nim' => ['Anda sudah terdaftar'],
+                'register_nim' => ['NIM telah terdaftar'],
             ]);
 
             throw $error;
